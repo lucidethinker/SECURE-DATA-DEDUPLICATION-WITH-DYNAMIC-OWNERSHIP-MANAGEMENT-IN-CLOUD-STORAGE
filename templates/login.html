@@ -1,0 +1,21 @@
+{% include 'public_header.html' %}
+	<h2><center>LOGIN</center></h2>
+	<form method="post">
+		<table align="center">
+			<tr>
+				<td>USERNAME:</td>
+				<td colspan="2"><input type="text" required="" class="form-control" name="name"></td>
+			</tr>
+			<tr>
+				<td>PASSWORD:</td>
+				<td colspan="2"><input type="PASSWORD" required="" class="form-control" name="pass"></td>
+			</tr>
+			<tr>
+				<td><br></td>
+				<td colspan="2"><input type="submit" class="btn btn-warning py-4 btn-custom-1" name="login" value="login"></td>
+			</tr>
+			
+		</table>
+	</form>
+
+{% include'footer.html'%}

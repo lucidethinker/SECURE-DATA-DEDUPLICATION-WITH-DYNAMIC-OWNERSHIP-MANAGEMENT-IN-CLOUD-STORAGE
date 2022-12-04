@@ -1,0 +1,27 @@
+{%include 'tutor_header.html'%}
+	<form method="post" enctype="multipart/form-data">
+		<table align="center">
+			<tr>
+				<td>SUBJECTS:</td>
+				<td><select name="subject_id">
+				{% for row in data['subjects'] %}
+					<option value="{{row['subject_id']}}">{{row['subject_title']}}</option>
+                {% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<td>TITLE:</td>
+				<td><input type="text" required=""  title="text only" pattern="[A-Za-z]{0,30}"   name="title"></td>
+			</tr>
+			<tr>
+				<td>MATERIAL:</td>
+				<td><input type="file" name="image"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="materials"></td>
+			</tr>
+		</table>
+		
+	</form>
+
+{%include 'footer.html'%}

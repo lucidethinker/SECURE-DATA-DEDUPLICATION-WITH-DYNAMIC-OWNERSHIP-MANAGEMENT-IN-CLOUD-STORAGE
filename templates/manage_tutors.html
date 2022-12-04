@@ -1,0 +1,98 @@
+{% include 'admin_header.html' %}
+	<center><h1>TUTORS</h1></center>
+	{% if data['tutorupdate'] %}
+	<form method="post">
+		<h2 align="center">update tutors</h2>
+		<table align="center">
+			<tr>
+				<td>FIRST NAME:</td>
+				<td><input type="text" name="fnames" required=""  title="text only" pattern="[A-Za-z]{0,15}"class="form-control" value="{{data['tutorupdate'][0]['first_name']}}"></td>
+			</tr>
+			<tr>
+				<td>LAST NAME:</td>
+				<td><input type="text" name="lnames" required=""  title="text only" pattern="[A-Za-z]{0,15}" class="form-control" value="{{data['tutorupdate'][0]['last_name']}}"></td>
+			</tr>
+			<tr>
+				<td>QUALIFICATION:</td>
+				<td><input type="text" name="qualifications" required="" pattern="[A-Za-z]{0,100}"  class="form-control" value="{{data['tutorupdate'][0]['qualification']}}"></td>
+			</tr>
+			<tr>
+				<td>PHONE NO:</td>
+				<td><input type="number" name="phones" required="" pattern="{10}[0-9]" class="form-control" value="{{data['tutorupdate'][0]['phone']}}"></td>
+			</tr>
+			<tr>
+				<td>EMAIL ID:</td>
+				<td><input type="email" name="emails" required=""  class="form-control" value="{{data['tutorupdate'][0]['email']}}"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" class="btn btn-warning py-4 btn-custom-1" name="tutorup" value="update"></td>
+			</tr>
+		</table>
+	</form>
+{%else%}
+<form method="post">
+	<table align="center">
+		<tr>
+			<td>FIRST NAME:</td>
+			<td><input type="text" name="fname"  required=""  title="text only" pattern="[A-Za-z]{0,15}"class="form-control"></td>
+		</tr>
+		<tr>
+			<td>LAST NAME:</td>
+			<td><input type="text" name="lname" required=""  title="text only" pattern="[A-Za-z]{0,15}" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>QUALIFICATION:</td>
+			<td><input type="text" name="qualification" required="" pattern="[A-Za-z0-9 ]{0,30}" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>PHONE NO:</td>
+			<td><input type="text" name="phone" required="" pattern="[0-9]{10}" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>EMAIL ID:</td>
+			<td><input type="email" name="email"  required=""   class="form-control"></td>
+		</tr>
+		<tr>
+			<td>USERNAME:</td>
+			<td><input type="text" name="username" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>PASSWORD:</td>
+			<td><input type="password" name="password" required="" class="form-control"></td>
+		</tr>
+
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-warning py-4 btn-custom-1" name="tutor" value="ADD"></td>
+		</tr>
+	</table>
+</form>
+{%endif%}
+	<table class="table" align="center">
+		<tr>
+			<th>t_id</th>
+			<th>firstname</th>
+			<th>lastname</th>
+			<th>qualification</th>
+			<th>phone no</th>
+			<th>Email</th>
+
+		</tr>
+		<tbody>
+			{% for row in data['tutors']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['first_name']}}</td>
+				<td>{{row['last_name']}}</td>
+				<td>{{row['qualification']}}</td>
+				<td>{{row['phone']}}</td>
+				<td>{{row['email']}}</td>
+
+				<td><a href="?action=delete&&id={{row['tutor_id']}}">Delete</a></td>
+				<td><a href="?action=update&&id={{row['tutor_id']}}">update</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>	
+
+
+{% include 'footer.html'%}

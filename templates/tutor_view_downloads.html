@@ -1,0 +1,24 @@
+{% include'tutor_header.html'%}
+	<form method="post">
+		<table align="center" class="table">
+			<tr>
+				<th>Uploaded Date</th>
+				<th>Title</th>
+				<th>Material</th>
+				<th>Downloads</th>
+			</tr>
+			{%for row in data['materials']%}
+			<tr>
+				<td>{{row['uploaded_date']}}</td>
+				<td>{{row['title']}}</td>
+				<td><img src="/{{row['file_path']}}" width="200px" height="150px"></td>
+				<td>{{row['no_of_downloads']}}</td>
+			</tr>
+			{%endfor%}
+			
+		</table>
+		
+	</form>
+
+
+{% include 'footer.html'%}

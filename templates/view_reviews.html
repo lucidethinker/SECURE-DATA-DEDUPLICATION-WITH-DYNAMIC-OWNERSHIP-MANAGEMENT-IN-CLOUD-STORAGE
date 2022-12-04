@@ -1,0 +1,22 @@
+{% include 'admin_header.html' %}
+
+	<form method="post">
+		<table align="center" class="table">
+			<h2 align="center">Reviews</h2>
+			<tr>
+				<th>Date</th>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			{%for row in data['reviews']%}
+			<tr>
+				<td>{{row['review_date']}}</td>
+				<td>{{row['NAME']}}</td>
+				<td>{{row['review_description']}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+		
+	</form>
+
+{% include 'footer.html'%}

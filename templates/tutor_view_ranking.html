@@ -1,0 +1,25 @@
+{% include'tutor_header.html'%}
+	<form method="post">
+		<table align="center">
+			<tr>
+				<th>Keyword</th>
+				<th>Ranking</th>
+				<th>No.of Hits</th>
+				
+			</tr>
+			{%for row in data['rankings']%}
+			<tr>
+				<td>{{row['keyword']}}</td>
+				<td>{{['ranking']}}</td>
+				<td>{{['no_of_hits']}}</td>
+			</tr>
+			{%endfor%}
+			
+		</table>
+		{%else%}
+		<h2 align="center">No Ratings Available For This</h2>
+		{% endif%}
+		
+	</form>
+
+{% include 'footer.html'%}

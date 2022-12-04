@@ -1,0 +1,62 @@
+{% include 'admin_header.html' %}
+
+	<center><h1>SUBJECTS</center></h1>
+{% if data['updatesubject']%}
+	<form method="post">
+		<table align="center">
+			<h2 align="center">update subjects</h2>
+			<tr>
+				<td >SUBJECT TITLE:</td>
+				<td colspan="2"><input type="text" required="" title="text only" pattern="[A-Za-z]{0,30}" class="form-control" name="subs" value="{{data['updatesubject'][0]['subject_title']}}"></td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION:</td>
+				<td><textarea name="Descriptions" required="" pattern="[A-Za-z]{0,100}" class="form-control">{{data['updatesubject'][0]['description']}}</textarea></td>
+			</tr>
+			<tr>
+				<td><br><br></td>
+				<td colspan="2"><input type="submit" name="update" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	{%else%}
+		<form method="post">
+		<table align="center">
+		
+			<tr>
+				<td >SUBJECT TITLE:</td>
+				<td colspan="2"><input type="text" required=""  title="text only" pattern="[A-Za-z]{0,30}"  class="form-control" name="sub"></td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION:</td>
+				<td><textarea name="Description" required="" pattern="[A-Za-z]{0,100}" class="form-control"></textarea></td>
+			</tr>
+			<tr>
+				<td><br><br></td>
+				<td colspan="2"><input type="submit" name="add" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	{%endif%}
+	<table align="center" class="table">
+		<tr>
+			<th>sl.No</th>
+			<th>Subjects</th>
+			<th>Description</th>
+		</tr>
+		<tbody>
+			{% for row in data['subjects']%}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['subject_title']}}</td>
+				<td>{{row['description']}}</td>
+				<td><a href="?action=delete&&id={{row['subject_id']}}">Delete</a></td>
+				<td><a href="?action=update&&id={{row['subject_id']}}">update</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		
+		
+	</table>
+
+{% include 'footer.html'%}

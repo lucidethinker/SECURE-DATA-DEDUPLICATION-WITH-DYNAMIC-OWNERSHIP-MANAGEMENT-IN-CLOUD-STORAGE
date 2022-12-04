@@ -1,0 +1,31 @@
+{% include 'user_header.html' %}
+
+<h2 align="center">Search Here For Materials</h2>
+<form method="post">
+	<table align="center">
+		<tr>
+			<td><input type="text" required="" name="search" placeholder="search here"></td>
+			<td><input type="submit" name="tosearch"  value="search"></td>
+		</tr>
+		
+	</table>
+</form>
+
+
+<table align="center" class="table">
+	<tr>
+		<th>Uploaded Data</th>
+		<th>Title</th>
+	</tr>
+	
+	{% for row in data['materials']%}
+	<tr>
+		<td>{{row['uploaded_date']}}</td>
+		<td>{{row['title']}}</td>
+		<td><a href="user_view_comments?id={{row['material_id']}}">Comments</a></td>
+		<td><a href="download?action=view&materialid={{row['material_id']}}">View</a></td>
+	</tr>
+	{%endfor%}
+	
+</table>
+{% include 'footer.html'%}

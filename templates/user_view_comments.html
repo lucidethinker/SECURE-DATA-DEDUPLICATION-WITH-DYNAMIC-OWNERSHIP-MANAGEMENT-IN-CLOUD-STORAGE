@@ -1,0 +1,28 @@
+{% include 'user_header.html' %}
+
+<table class="table" align="center">
+	<tr>
+		<th>Date</th>
+		<th>Comment</th>
+		<th>Reply</th>
+	</tr>
+	{% for row in data['comments']%}
+	<tr>
+		<td>{{row['comment_date']}}</td>
+		<td>{{row['comment_description']}}</td>
+		<td>{{row['reply']}}</td>
+	</tr>
+	{% endfor %}
+</table>
+<form method="post">
+	<table align="center">
+		<tr>
+			<td><textarea name="comment" class="form-control" placeholder="Add Comment"></textarea></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="com" class="btn-primary text-white" value="Comment"></td>
+		</tr>
+		
+	</table>
+</form>
+{% include 'footer.html'%}

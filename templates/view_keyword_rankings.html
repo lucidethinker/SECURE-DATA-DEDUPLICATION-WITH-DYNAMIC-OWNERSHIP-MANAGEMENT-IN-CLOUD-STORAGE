@@ -1,0 +1,20 @@
+{% include'admin_header.html' %}
+
+	<form method="post">
+		<table align="center" class="table">
+			<h2 align="center">Keywords</h2>
+			<tr>
+				<th>Ranking</th>
+				<th>Keyword</th>
+				<th>No.Of.Hits</th>
+			</tr>
+			{%for row in data['keywords']%}
+			<tr>
+				<td>{{row['ranking']}}</td>
+				<td>{{row['keyword']}}</td>
+				<td>{{row['no_of_hits']}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</form>
+{% include 'footer.html'%}

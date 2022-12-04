@@ -1,0 +1,20 @@
+{% include 'admin_header.html' %}
+	<form method="post">
+		<table align="center" class="table">
+			<h2 align="center">Most searched keywords</h2>
+			<tr>
+				<th>Date</th>
+				<th>Name</th>
+				<th>Keyword</th>
+			</tr>
+			{%for row in data['searchkeywords'] %}
+			<tr>
+				<td>{{row['search_date']}}</td>
+				<td>{{row['NAME']}}</td>
+				<td>{{row['search_word']}}</td>
+			</tr>
+			{%endfor%}
+		</table>
+	</form>
+
+{% include 'footer.html'%}

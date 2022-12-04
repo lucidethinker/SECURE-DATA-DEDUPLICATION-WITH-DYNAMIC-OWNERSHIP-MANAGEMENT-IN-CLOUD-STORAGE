@@ -1,0 +1,45 @@
+{% include 'public_header.html' %}
+
+	<h2><center>USER REGISTRATION</center></h2>
+	<form method="post">
+		<table align="center">
+			<br>
+			<br>
+			<tr>
+				<td>FIRST NAME:</td>
+				<td><input type="text" required="" title="text only" pattern="[A-Za-z]{0,15}" class="form-control" name="Fname"></td>
+			</tr>
+			<tr>
+				<td>LAST NAME:</td>
+				<td><input type="text"  required="" title="text only"  pattern="[A-Za-z]{0,15}" class="form-control" name="Lname"></td>
+			</tr>
+			<tr>
+				<td>GENDER:</td>
+				<td class="form-control"><input type="radio" required="" name="gender" value="male">male<input type="radio" required="" name="gender" value="female">female</td>
+			</tr>
+			<tr>
+				<td>PHONE NUMBER:</td>
+				<td><input type="text" name="phones" required="" pattern="[0-9]{10}" class="form-control" name="phone"></td>
+			</tr>
+			<tr>
+				<td>EMAIL ID:</td>
+				<td><input type="email" required="" class="form-control" name="email"></td>
+			</tr>
+			<tr>
+				<td>USERNAME:</td>
+				<td><input type="text" required="" pattern="[A-Za-z]{0,15}" class="form-control" name="name"></td>
+			</tr>
+			<tr>
+				<td>PASSWORD:</td>
+				<td><input type="password"  required="" class="form-control" name="passwrd"></td>
+			</tr>
+			<tr>
+				<tr>
+				<td><br></td>
+				<tr>
+				<td colspan="2" align="center"><input type="submit" class="btn btn-warning py-4 btn-custom-1" name="register" value="register"></td>
+			</tr>
+		</table>
+		
+	</form>
+{% include 'footer.html'%}

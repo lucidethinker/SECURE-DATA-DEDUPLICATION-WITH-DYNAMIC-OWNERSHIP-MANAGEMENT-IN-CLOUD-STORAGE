@@ -1,0 +1,26 @@
+{% include'tutor_header.html'%}
+		<table align="center" class="table">
+			<tr>
+				<th>Name</th>
+				<th>Comment</th>
+				<th>Replay</th>
+			</tr>
+			{%for row in data['comments']%}
+			<tr>
+				<td>{{row['NAME']}}</td>
+				<td>{{row['comment_description']}}</td>
+				{%if row['reply']=='NOT'%}
+			</tr>
+			<form method="post">
+				<td><input type="text" class="form-control" name="replay{{loop.index}}">
+					<input type="submit" name="submit{{loop.index}}" value="submit"></td>
+				
+			</form>
+			{%else%}
+			<td>{{row['reply']}}</td>
+			{%endif%}
+			{%endfor%}
+		</table>
+	
+
+{% include 'footer.html'%}
